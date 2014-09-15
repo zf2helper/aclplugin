@@ -25,7 +25,6 @@ return array(
             )
         ),
         'modules' => array(
-            'application',
         ),
         'permissions' => array(
             'guest' => array(
