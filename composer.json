@@ -1,6 +1,6 @@
 {
     "name": "zf2helper/aclplugin",
-    "version": "1.0",
+    "version": "1.0.0",
     "reference":"master",
     "type": "zf-module",
     "require": {
@@ -14,5 +14,10 @@
         "classmap": [
             "./Module.php"
         ]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
     }
 }
