@@ -1,6 +1,6 @@
 {
     "name": "zf2helper/aclplugin",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "reference":"master",
     "type": "zf-module",
     "require": {
@@ -17,7 +17,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.1.x-dev"
+            "dev-master": "1.2.x-dev"
         }
     }
 }
