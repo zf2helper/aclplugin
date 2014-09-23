@@ -17,7 +17,7 @@ return array(
     ),
     'acl_config' => array(
         'defaults' => array(
-            'access' => 'deny', // "allow" or "deny"
+            'access' => 'allow', // "allow" or "deny"
             'loginRoute' => 'app/login', //Login route
             'statusCode' => 302, //Status code
             'guestRoleName' => 'guest',
@@ -27,11 +27,6 @@ return array(
         'modules' => array(
         ),
         'permissions' => array(
-            'guest' => array(
-                'allow' => array(
-                    new AclConfig('application'),
-                ),
-            ),
         )
     )
 );

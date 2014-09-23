@@ -1,0 +1,30 @@
+<?php
+
+use \AclPlugin\Service\AclPermissionConfig as AclConfig;
+
+return array(
+    'acl_config' => array(
+        'defaults' => array(
+            'loginRoute' => 'app/login', //Login route
+            'roles' => array(
+                'Administrator'
+            )
+        ),
+        'modules' => array(
+            'application',
+            'admin'
+        ),
+        'permissions' => array(
+            'guest' => array(
+                'allow' => array(
+                    new AclConfig('application', 'index'),
+                ),
+            ),
+            'Administrator' => array(
+                'allow' => array(
+                    new AclConfig('admin'),
+                )
+            )
+        )
+    )
+);
