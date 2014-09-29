@@ -28,7 +28,7 @@ class Module
 
         $matchedRoute = $router->match($request);
         if (null !== $matchedRoute) {
-            $sharedManager->attach('Zend\Mvc\Controller\AbstractActionController', 'dispatch', function($e) use ($sm) {
+            $sharedManager->attach('Zend\Mvc\Controller\AbstractActionController', MvcEvent::EVENT_DISPATCH, function($e) use ($sm) {
                     $AclPlugin = $sm->get('ControllerPluginManager')->get('AclPlugin');
                     $config = $sm->get('config');
                     $AclConfig = new \Zend\Config\Config($config['acl_config']);
