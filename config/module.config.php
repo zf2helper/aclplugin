@@ -8,13 +8,6 @@ return array(
             'AclPlugin' => 'AclPlugin\Controller\Plugin\AclPluginPlugin',
         )
     ),
-    'service_manager' => array(
-        'factories' => array(
-            'Zend\Authentication\AuthenticationService' => function($serviceManager) {
-                return $serviceManager->get('doctrine.authenticationservice.orm_default');
-            },
-        ),
-    ),
     'acl_config' => array(
         'defaults' => array(
             'access' => 'allow', // "allow" or "deny"
