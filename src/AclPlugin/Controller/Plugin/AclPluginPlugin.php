@@ -12,6 +12,9 @@ use Zend\ServiceManager\ServiceManagerAwareInterface;
 use Zend\ServiceManager\ServiceManager;
 use Zend\Mvc\Router\RouteMatch as RouteMatch;
 
+use \AclPlugin\Service\AclPermissionConfig as AclConfig;
+
+
 class AclPluginPlugin extends AbstractPlugin implements ServiceManagerAwareInterface
 {
 
@@ -113,12 +116,14 @@ class AclPluginPlugin extends AbstractPlugin implements ServiceManagerAwareInter
     {
         foreach ($this->getConfig()->permissions as $role => $type) {
             if ($type->allow) {
-                foreach ($type->allow as $allow) {
+                foreach ($type->allow as $params) {
+                    $allow = new AclConfig($params);
                     $acl->allow($role, $allow->getResource(), $allow->getParams());
                 }
             }
             if ($type->deny) {
-                foreach ($type->deny as $deny) {
+                foreach ($type->deny as $params) {
+                    $allow = new AclConfig($params);
                     $acl->deny($role, $deny->getResource(), $deny->getParams());
                 }
             }
