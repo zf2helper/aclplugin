@@ -7,10 +7,10 @@ class AclPermissionConfig
     private $params;
     
     
-    public function __construct($params)
+    public function __construct($resource, $params = null)
     {
-        $this->resource = $params[0];
-        $this->params = $params[1];
+        $this->resource = $resource;
+        $this->params = $params;
     }
     
     public function getResource()
