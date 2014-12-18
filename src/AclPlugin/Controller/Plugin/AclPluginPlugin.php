@@ -117,12 +117,12 @@ class AclPluginPlugin extends AbstractPlugin implements ServiceManagerAwareInter
         foreach ($this->getConfig()->permissions as $role => $type) {
             if ($type->allow) {
                 foreach ($type->allow as $allow) {
-                    $acl->allow($role, $allow->getResource(), $allow->getParams());
+                    $acl->allow($role, $allow->get('resource'), $allow->get('params'));
                 }
             }
             if ($type->deny) {
                 foreach ($type->deny as $deny) {
-                    $acl->deny($role, $deny->getResource(), $deny->getParams());
+                    $acl->deny($role, $deny->get('resource'), $deny->get('params'));
                 }
             }
         }

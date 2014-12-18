@@ -1,7 +1,5 @@
 <?php
 
-use \AclPlugin\Service\AclPermissionConfig as AclConfig;
-
 return array(
     'acl_config' => array(
         'defaults' => array(
@@ -17,12 +15,15 @@ return array(
         'permissions' => array(
             'guest' => array(
                 'allow' => array(
-                    new AclConfig('application', 'index'),
+                    ['resource' => 'application', 'params' => 'index'],
                 ),
             ),
             'Administrator' => array(
                 'allow' => array(
-                    new AclConfig('admin'),
+                    ['resource' => 'admin'],
+                ),
+                'deny' => array(
+                    ['resource' => 'user'],
                 )
             )
         )
