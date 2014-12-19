@@ -87,7 +87,7 @@ class AclPluginPlugin extends AbstractPlugin implements ServiceManagerAwareInter
         $controllerName = strtolower($controllerName);
 
         if ((!$acl->isAllowed($role, $moduleName, $controllerName . ':' . $actionName) 
-                && !$acl->isAllowed($role, $moduleName, $controllerName)) 
+                || !$acl->isAllowed($role, $moduleName, $controllerName)) 
                 && $routeMatch->getMatchedRouteName() !== $this->getConfig()->defaults->loginRoute) {
             $this->goToLogin($e, $role);
         }
