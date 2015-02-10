@@ -22,7 +22,7 @@ class AclPluginPlugin extends AbstractPlugin implements ServiceManagerAwareInter
     protected $sm;
     protected $config;
 
-    public function getSessContainer($e)
+    public function getSessContainer()
     {
         $session = new SessionContainer('user');
         if (!$session->user) {
