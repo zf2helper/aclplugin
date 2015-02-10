@@ -33,6 +33,7 @@ class Module
                     $config = $sm->get('config');
                     $AclConfig = new \Zend\Config\Config($config['acl_config']);
                     $AclPlugin->setConfig($AclConfig);
+                    $AclPlugin->setServiceManager($sm);
                     $AclPlugin->doAuthorization($e);
                 }, 2
             );

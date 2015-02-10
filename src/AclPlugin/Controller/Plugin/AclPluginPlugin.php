@@ -22,11 +22,10 @@ class AclPluginPlugin extends AbstractPlugin implements ServiceManagerAwareInter
     protected $sm;
     protected $config;
 
-    private function getSessContainer($e)
+    public function getSessContainer($e)
     {
         $session = new SessionContainer('user');
         if (!$session->user) {
-            $this->setServiceManager($e->getApplication()->getServiceManager());
             $authenticationService = $this->sm->get('Zend\Authentication\AuthenticationService');
             $session->user = $authenticationService->getIdentity();
         }
